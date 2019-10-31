@@ -1,0 +1,223 @@
+/* You can add global styles to this file, and also import other style files */
+.modal-content
+{
+  position: fixed !important;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 47%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: .3rem;
+  outline: 0;
+  bottom: 8px !important;
+  right: 10px !important;
+
+ 
+
+}
+
+.modalHeader
+{
+background-color:#f9f9f9;
+}
+
+.modalHeaderRow
+{
+    padding:10px;
+    padding-left: 20px;
+}
+
+.numtext
+{
+    font-size: 40px;
+    font-family:'Arial Narrow';
+    color: #888686;
+}
+
+.incallName
+{
+    font-size: 20px;
+    color: #888686;
+}
+
+.phometext
+{
+    font-size: 20px;
+    color: #51a1e4;
+    font-family:'Arial Narrow';
+}
+
+.badge {
+    padding: 3px 9px 3px;
+    font-size: 12.025px;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #ffffff;
+    background-color: #cccccc;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+  }
+  .badge:hover {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .badge-error {
+    background-color: #b94a48;
+  }
+  .badge-error:hover {
+    background-color: #953b39;
+  }
+  .badge-warning {
+    background-color: #f89406;
+  }
+  .badge-warning:hover {
+    background-color: #c67605;
+  }
+  .badge-success {
+    background-color: #69db55;
+  }
+  .badge-success:hover {
+    background-color: #356635;
+  }
+  .badge-info {
+    background-color: #3a87ad;
+  }
+  .badge-info:hover {
+    background-color: #2d6987;
+  }
+  .badge-inverse {
+    background-color: #333333;
+  }
+  .badge-inverse:hover {
+    background-color: #1a1a1a;
+  }
+
+  .greendot {
+    height: 10px;
+    width: 10px;
+    background-color: #69db55;
+    border-radius: 50%;
+    display: inline-block;
+  }
+.close
+{
+    color:#51a1e4 !important;
+    padding-right:5px !important;
+}
+
+.userimg
+{
+    z-index: 99999;
+    position: absolute;
+    top: -60px;
+    padding-left: 30px;
+}
+
+.userdistxt
+{
+    color: #b1b1b1;
+    font-size: 15px;
+}
+
+.usersharetxt
+{
+    color: #b1b1b1;
+    font-size: 12px;
+    text-decoration: underline;
+    padding-right: 5px;
+}
+
+.callhistorytext
+{
+    color: #b1b1b1;
+    font-size: 14px;
+}
+
+
+.normaltext
+{
+    color: #b1b1b1;
+    font-size: 12px;
+}
+
+.lbltext
+{ 
+     font-size: 12px;
+}
+
+.footerheadingbadge
+{
+    padding: 1px 9px 2px;
+    font-weight: normal;
+    white-space: nowrap;
+    color: #000;
+    background-color: #ebeff2;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;    
+    bottom: 135px;
+    position: absolute;
+    z-index: 999999;
+    right: 30%;
+    width:40%;
+    margin: 0 auto;
+    text-align: center;
+}
+.footerbackground
+{
+    background-color: #ebeff2;
+
+}
+
+.showfth
+{
+    font-size: 12px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.footertext
+{
+    background-color: #ffffff;
+    font-size: 15px ;
+    color: #b1b1b1;
+    font-weight: normal;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 6px;
+
+}
+
+.rowfooter
+{
+    margin-right: 10px !important;
+    margin-left: 13px  !important;
+}
+
+.left{
+float: left;
+}
+
+.footerSave
+{
+    padding-top:15px;
+}
+
+.custbutton {
+    background-color: #ffffff;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 50%;
+  }
