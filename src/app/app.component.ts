@@ -18,11 +18,13 @@ export class AppComponent {
   callerAddress: string;
   callerPhoneNo: string;
   userImage: string;
+  startTime;
+  endTime;
 
   //constructor
   constructor(private modalService: NgbModal) {
     this.intervalTime = 1000;
-    this.callerDetailsArray = [];
+    this.callerDetailsArray = [];   
   }
 
   /*****************************************
@@ -36,7 +38,8 @@ export class AppComponent {
    Output Type: 
   *******************************************/
   open(content) {
-
+    this.calltime = '00:00:00';
+    this.startTime = new Date();
     if (this.callerDetailsArray.length == 0) {
       this.callerDetailsArray = [
         { name: "Shirley Thomas", address: "Marketing Executive,Inform Group Pty Ltd,Philippines,Cosmetics", phone: "+1(234) 123 123", userImage: "usephOutLine.png" },
@@ -52,7 +55,9 @@ export class AppComponent {
     this.callerPhoneNo = this.callerDetailsArray[randomIndex].phone;
     this.userImage = this.callerDetailsArray[randomIndex].userImage;
 
-    this.timersubscription = interval(this.intervalTime).subscribe(n => this.calltime = new Date());
+    this.timersubscription = interval(this.intervalTime).subscribe(n => 
+      this.setTime()
+    );
     this.modalService.open(content,
       {
         ariaLabelledBy: 'modal-basic-title',
@@ -67,6 +72,41 @@ export class AppComponent {
 
     });
 
+  }
+  /*****************************************
+   Function Name : setTime()
+   Parameter : 
+   Purpose : Time elapsed calculation
+   Created By : Arnab Ganguly
+   Created date : 01/11/2019
+   Edited By :
+   Edited Date: 
+   Output Type: string / HH:MM:SS
+  *******************************************/
+  setTime()
+  { 
+    this.endTime = new Date()
+    var timeDiff = this.endTime - this.startTime //in ms
+    var ms = timeDiff % 1000;
+    timeDiff = (timeDiff - ms) / 1000;
+    var secs = timeDiff % 60;
+    timeDiff = (timeDiff - secs) / 60;
+    var mins = timeDiff % 60;
+    var hrs = (timeDiff - mins) / 60;
+    this.calltime = this.pad(hrs,2) + ':' + this.pad(mins,2) + ':' + this.pad(secs,2);
+  }
+/*****************************************
+   Function Name : pad()
+   Parameter : 
+   Purpose : pad for single digit
+   Created By : Arnab Ganguly
+   Created date : 01/11/2019
+   Edited By :
+   Edited Date: 
+   Output Type: two digit
+  *******************************************/
+  pad(n, z) {
+    return ('00' + n).slice(-z);
   }
 
 }
