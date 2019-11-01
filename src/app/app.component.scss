@@ -3,15 +3,12 @@
     text-align: center;
 }
 
-
-
 .bottomright {
     position: absolute;
     bottom: 8px;
     right: 16px;
     font-size: 18px;
   }
-
   .rounedbutton {border-radius: 50%;height: 35px; padding-bottom: 40px !important;}
 
   .imgclass
@@ -23,5 +20,6 @@
   .btnfooter
   {
     padding: .84rem 1.14rem !important;
+    border-radius: 4px;
   }
 
