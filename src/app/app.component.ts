@@ -20,6 +20,9 @@ export class AppComponent {
   userImage: string;
   startTime;
   endTime;
+  flagStart:boolean =true;
+  inCallStatus:string = "Hang Up";
+  dangerOrSuccess ="danger";
 
   //constructor
   constructor(private modalService: NgbModal) {
@@ -38,8 +41,10 @@ export class AppComponent {
    Output Type: 
   *******************************************/
   open(content) {
-    this.calltime = '00:00:00';
-    this.startTime = new Date();
+
+    this.flagStart = true;
+    this.dangerOrSuccess ="danger";
+    this.calltime = '00:00:00';    
     if (this.callerDetailsArray.length == 0) {
       this.callerDetailsArray = [
         { name: "Shirley Thomas", address: "Marketing Executive,Inform Group Pty Ltd,Philippines,Cosmetics", phone: "+1(234) 123 123", userImage: "usephOutLine.png" },
@@ -55,9 +60,7 @@ export class AppComponent {
     this.callerPhoneNo = this.callerDetailsArray[randomIndex].phone;
     this.userImage = this.callerDetailsArray[randomIndex].userImage;
 
-    this.timersubscription = interval(this.intervalTime).subscribe(n => 
-      this.setTime()
-    );
+   
     this.modalService.open(content,
       {
         ariaLabelledBy: 'modal-basic-title',
@@ -66,10 +69,7 @@ export class AppComponent {
         windowClass: 'animated slideInRight'
       }
     ).result.then((result) => { }, (reason) => {
-      if (this.timersubscription) {
-        this.timersubscription.unsubscribe();
-      }
-
+      
     });
 
   }
@@ -107,6 +107,45 @@ export class AppComponent {
   *******************************************/
   pad(n, z) {
     return ('00' + n).slice(-z);
+  }
+
+/*****************************************
+   Function Name : timerStart()
+   Parameter : 
+   Purpose : Start the timer
+   Created By : Arnab Ganguly
+   Created date : 12/11/2019
+   Edited By :
+   Edited Date: 
+   Output Type: 
+  *******************************************/
+  timerStart()
+  {
+    console.log("this.flagStart",this.flagStart)
+    if(this.flagStart)
+    {
+      this.calltime = '00:00:00';
+      this.startTime = new Date();
+      this.timersubscription = interval(this.intervalTime).subscribe(n => 
+        this.setTime()
+      );
+      this.inCallStatus = "IN Call";
+      this.dangerOrSuccess ="success";
+      this.flagStart = false;
+    }
+    else{
+
+      this.calltime = '00:00:00';
+      this.dangerOrSuccess ="danger";
+      this.inCallStatus = "Hang Up";
+      this.flagStart = true;
+      if (this.timersubscription) {
+        this.timersubscription.unsubscribe();
+      }
+
+    }
+    
+
   }
 
 }

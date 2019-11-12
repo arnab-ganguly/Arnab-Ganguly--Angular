@@ -8,11 +8,11 @@
       <div class="row modalHeaderRow">
         <div class="col-4 callhistorytext"> <img src="../assets/images/callhistory.png"> CALLS HISTORY</div>
         <div class="col-3" style="text-align:right;">
-          <span class="badge badge-success">IN CALL</span>
+          <span [ngClass]="inCallStatus == 'IN Call' ? 'badge badge-success' : 'badge badge-danger'">{{inCallStatus}}</span>
           <span class="badge">OUTBOUND CALL</span>
         </div>
-        <div class="col-5 numtext" style="text-align:right;">{{ calltime }} <img
-            src="../assets/images/phoneOutLine.png">
+        <div class="col-5 numtext" style="text-align:right;">{{ calltime }} 
+          <img src="../assets/images/phoneOutLine.png" (click)="timerStart()" >
         </div>
       </div>
       <div class="row modalHeaderRow">
